@@ -1,0 +1,229 @@
+Grading r12848 by rliu30 committed on Tue Sep 13 22:12:50 CDT 2016
+Monad Autograder
+Testing mp2 at 2016-09-14 01:05:48
+
+"I have never let my schooling interfere with my education." ~ Mark Twain
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+InvertColorsEven . . . . . . . . . [8 pts] - passed
+FlipLeftEven . . . . . . . . . . . [4 pts] - passed
+FlipLeftOdd  . . . . . . . . . . . [4 pts] - passed
+AdjustBrightnessEven . . . . . . . [3 pts] - passed
+AdjustBrightnessEven2  . . . . . . [3 pts] - passed
+AdjustBrightnessEven3  . . . . . . [3 pts] - passed
+ImageMakefile  . . . . . . . . . . [5 pts] - FAILED: ./testmakefile.cpp:42: make returned error
+Valgrind1 (asan) . . . . . . . . . [5 pts] - passed
+AddPictureValidIndex . . . . . . . [2 pts] - passed
+AddPictureInvalidIndex . . . . . . [2 pts] - passed
+ImageAssignmentOperator  . . . . . [2 pts] - passed
+SceneGetPictureInvalidIndex  . . . [2 pts] - passed
+SceneChangeMaxLayersLarger . . . . [2 pts] - passed
+SceneChangeMaxLayersSmaller (asan) [1 pts] - FAILED: Memory errors detected by ASAN
+SceneChangeMaxLayersInvalidChange  [2 pts] - passed
+SceneCopyCtor  . . . . . . . . . . [2 pts] - passed
+SceneCopyCtor2 . . . . . . . . . . [2 pts] - passed
+SceneAssignmentOperator  . . . . . [2 pts] - passed
+SceneAssignmentOperator2 . . . . . [2 pts] - passed
+SceneChangeLayer . . . . . . . . . [2 pts] - passed
+SceneChangeLayerInvalid  . . . . . [2 pts] - passed
+SceneDrawScene . . . . . . . . . . [3 pts] - passed
+SceneDrawScene2  . . . . . . . . . [3 pts] - passed
+SceneDrawScene3  . . . . . . . . . [3 pts] - passed
+SceneDrawScene4  . . . . . . . . . [3 pts] - passed
+SceneDrawSceneChangeLayer  . . . . [2 pts] - passed
+SceneDrawSceneDeletePicture  . . . [2 pts] - passed
+SceneDrawSceneTranslate  . . . . . [2 pts] - passed
+SceneDrawSceneTranslate2 . . . . . [2 pts] - passed
+SceneTranslateInvalid  . . . . . . [2 pts] - passed
+SceneTranslateInvalid2 . . . . . . [1 pts] - passed
+SceneDeletePictureInvalid  . . . . [2 pts] - passed
+Valgrind2 (asan) . . . . . . . . . [5 pts] - FAILED: Memory errors detected by ASAN
+Valgrind3 (asan) . . . . . . . . . [5 pts] - FAILED: Memory errors detected by ASAN
+SceneMakefile  . . . . . . . . . . [5 pts] - FAILED: ./testmakefile.cpp:42: make returned error
+
+
+Total score...
+================================================================
+TOTAL SCORE: 79
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+ImageMakefile [5 points]
+Result: FAILED: ./testmakefile.cpp:42: make returned error
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+clang++ -std=c++1y -stdlib=libc++ -lc++abi -c -g -O0 -Wall  image.cpp
+clang-3.5: warning: -lc++abi: 'linker' input unused
+clang++ -std=c++1y -stdlib=libc++ -lc++abi -c -g -O0 -Wall  png.cpp
+clang-3.5: warning: -lc++abi: 'linker' input unused
+clang++ -std=c++1y -stdlib=libc++ -lc++abi -c -g -O0 -Wall  rgbapixel.cpp
+clang-3.5: warning: -lc++abi: 'linker' input unused
+clang++ -std=c++1y -stdlib=libc++ -lc++abi -c -g -O0 -Wall  testimage.cpp
+clang-3.5: warning: -lc++abi: 'linker' input unused
+make: *** No rule to make target `scene.cpp', needed by `scene.o'.  Stop.
+
+----------------------------------------------------------------
+SceneChangeMaxLayersSmaller (run under asan) [1 points]
+Result: FAILED: Memory errors detected by ASAN
+Took unknown time (2000ms timeout)
+Output:
+----------------------------------------------------------------
+Running SceneChangeMaxLayersSmaller [worth 1 points, output below]
+index out of bounds
+
+=================================================================
+==27739==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x41ef1b in operator new[](unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:64:37
+    #1 0x67d74c in Scene::Scene(int) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x67d74c)
+    #2 0x64d7e1 in proxy_test::SceneChangeMaxLayersSmaller(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x64d7e1)
+    #3 0x4ea848 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ea848)
+    #4 0x4cf9f3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4cf9f3)
+    #5 0x4c153e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4c153e)
+    #6 0x4bbd22 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4bbd22)
+    #7 0x4b19e7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b19e7)
+    #8 0x4b0b87 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b0b87)
+    #9 0x4ad2e9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ad2e9)
+    #10 0x4aac3e in main (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4aac3e)
+    #11 0x7f388f303b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+Direct leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x41ef1b in operator new[](unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:64:37
+    #1 0x68056c in Scene::changemaxlayers(int) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x68056c)
+    #2 0x64d820 in proxy_test::SceneChangeMaxLayersSmaller(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x64d820)
+    #3 0x4ea848 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ea848)
+    #4 0x4cf9f3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4cf9f3)
+    #5 0x4c153e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4c153e)
+    #6 0x4bbd22 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4bbd22)
+    #7 0x4b19e7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b19e7)
+    #8 0x4b0b87 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b0b87)
+    #9 0x4ad2e9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ad2e9)
+    #10 0x4aac3e in main (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4aac3e)
+    #11 0x7f388f303b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+SUMMARY: AddressSanitizer: 24 byte(s) leaked in 2 allocation(s).
+Result: FAILED:
+Memory Leaks Detected by ASAN
+
+----------------------------------------------------------------
+Valgrind2 (run under asan) [5 points]
+Result: FAILED: Memory errors detected by ASAN
+Took unknown time (10000ms timeout)
+Output:
+----------------------------------------------------------------
+Running Valgrind2 [worth 5 points, output below]
+
+=================================================================
+==27772==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x41ef1b in operator new[](unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:64:37
+    #1 0x67ee84 in Scene::copy(Scene const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x67ee84)
+    #2 0x67e994 in Scene::Scene(Scene const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x67e994)
+    #3 0x65c213 in proxy_test::Valgrind2(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x65c213)
+    #4 0x4ea848 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ea848)
+    #5 0x4cf9f3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4cf9f3)
+    #6 0x4c153e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4c153e)
+    #7 0x4bbd22 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4bbd22)
+    #8 0x4b19e7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b19e7)
+    #9 0x4b0b87 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b0b87)
+    #10 0x4ad2e9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ad2e9)
+    #11 0x4aac3e in main (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4aac3e)
+    #12 0x7fa27e726b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x41ef1b in operator new[](unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:64:37
+    #1 0x67d74c in Scene::Scene(int) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x67d74c)
+    #2 0x65c153 in proxy_test::Valgrind2(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x65c153)
+    #3 0x4ea848 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ea848)
+    #4 0x4cf9f3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4cf9f3)
+    #5 0x4c153e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4c153e)
+    #6 0x4bbd22 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4bbd22)
+    #7 0x4b19e7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b19e7)
+    #8 0x4b0b87 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b0b87)
+    #9 0x4ad2e9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ad2e9)
+    #10 0x4aac3e in main (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4aac3e)
+    #11 0x7fa27e726b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x41ef1b in operator new[](unsigned long) /dev/shm/225/lm35/src/llvm/projects/compiler-rt/lib/asan/asan_new_delete.cc:64:37
+    #1 0x67ee84 in Scene::copy(Scene const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x67ee84)
+    #2 0x67fd9d in Scene::operator=(Scene const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x67fd9d)
+    #3 0x65cac2 in proxy_test::Valgrind2(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x65cac2)
+    #4 0x4ea848 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ea848)
+    #5 0x4cf9f3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4cf9f3)
+    #6 0x4c153e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4c153e)
+    #7 0x4bbd22 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4bbd22)
+    #8 0x4b19e7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b19e7)
+    #9 0x4b0b87 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b0b87)
+    #10 0x4ad2e9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ad2e9)
+    #11 0x4aac3e in main (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4aac3e)
+    #12 0x7fa27e726b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+
+SUMMARY: AddressSanitizer: 48 byte(s) leaked in 3 allocation(s).
+Result: FAILED:
+Memory Leaks Detected by ASAN
+
+----------------------------------------------------------------
+Valgrind3 (run under asan) [5 points]
+Result: FAILED: Memory errors detected by ASAN
+Took unknown time (10000ms timeout)
+Output:
+----------------------------------------------------------------
+Running Valgrind3 [worth 5 points, output below]
+ASAN:SIGSEGV
+=================================================================
+==27781==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000010 (pc 0x00000066a49b bp 0x7ffdb92a52f0 sp 0x7ffdb92a5220 T0)
+    #0 0x66a49a in PNG::_clear() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x66a49a)
+    #1 0x67495b in PNG::operator=(PNG const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x67495b)
+    #2 0x65f566 in Image::operator=(Image const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x65f566)
+    #3 0x680dc1 in Scene::changemaxlayers(int) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x680dc1)
+    #4 0x65d6d8 in proxy_test::Valgrind3(util::sizedpipestream<512ul>&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x65d6d8)
+    #5 0x4ea848 in monad_shared::unit_test_input::execute(util::sizedpipestream<512ul>&) const (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ea848)
+    #6 0x4cf9f3 in proxy::test_execution::child_test() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4cf9f3)
+    #7 0x4c153e in proxy::test_execution::child() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4c153e)
+    #8 0x4bbd22 in proxy::RunTests::run_single_test(monad_shared::unit_test_input const&) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4bbd22)
+    #9 0x4b19e7 in proxy::RunTests::run_single_test(char const*) (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b19e7)
+    #10 0x4b0b87 in proxy::RunTests::execute_by_mode() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4b0b87)
+    #11 0x4ad2e9 in proxy::RunTests::execute() (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4ad2e9)
+    #12 0x4aac3e in main (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4aac3e)
+    #13 0x7f3c954e1b14 in __libc_start_main (/lib64/libc.so.6+0x21b14)
+    #14 0x4a37bc in _start (/dev/shm/cs225student/autograder/monad/monad/mp2_grade/proxy-asan+0x4a37bc)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV ??:0 PNG::_clear()
+==27781==ABORTING
+Result: FAILED:
+Memory Errors Detected by ASAN
+
+----------------------------------------------------------------
+SceneMakefile [5 points]
+Result: FAILED: ./testmakefile.cpp:42: make returned error
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+clang++ -std=c++1y -stdlib=libc++ -lc++abi -c -g -O0 -Wall  image.cpp
+clang-3.5: warning: -lc++abi: 'linker' input unused
+clang++ -std=c++1y -stdlib=libc++ -lc++abi -c -g -O0 -Wall  png.cpp
+clang-3.5: warning: -lc++abi: 'linker' input unused
+clang++ -std=c++1y -stdlib=libc++ -lc++abi -c -g -O0 -Wall  rgbapixel.cpp
+clang-3.5: warning: -lc++abi: 'linker' input unused
+make: *** No rule to make target `testimage.cpp', needed by `testimage.o'.  Stop.
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 79
+
