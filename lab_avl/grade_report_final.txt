@@ -1,0 +1,28 @@
+Grading r42344 by rliu30 committed on Sun Oct 30 23:52:15 CDT 2016
+Monad Autograder
+Testing lab_avl at 2016-10-31 00:21:39
+
+"Most software today is very much like an Egyptian pyramid with millions of bricks piled on top of each other, with no structural integrity, but just done by brute force and thousands of slaves." ~ Alan Kay
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_oneElement  . . . [8 pts]  - passed
+test_simpleRotateLeft  [8 pts]  - passed
+test_simpleRotateRight [8 pts]  - passed
+test_threeLeftRotates  [8 pts]  - passed
+test_threeRightRotates [8 pts]  - passed
+test_manyRotations . . [17 pts] - passed
+test_manyInserts . . . [17 pts] - passed
+test_manyRemovals  . . [17 pts] - passed
+test_valgrind (asan) . [9 pts]  - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+
