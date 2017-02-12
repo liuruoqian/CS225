@@ -1,0 +1,60 @@
+Grading r29836 by rliu30 committed on Sun Oct  9 22:07:31 CDT 2016
+Monad Autograder
+Testing lab_trees at 2016-10-10 00:21:06
+
+"Rejoice!" ~ Kotomine Kirei
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_isOrdered  . [33 pts] - FAILED: unit_tests.cpp:49: Assertion (tree2.isOrdered() == true) failed
+test_mirror . . . [33 pts] - passed
+test_printPaths . [34 pts] - passed
+test_sumDistances [25 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 92
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+test_isOrdered [33 points]
+Result: FAILED: unit_tests.cpp:49: Assertion (tree2.isOrdered() == true) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+                        ______ 6 ______                          
+                 ______/               \______                   
+               5 __                         __ 0 __              
+                   \__                   __/       \__           
+                       8               9               3         
+                     /   \                           /           
+                   4       1                       7             
+                  /                                              
+                 2                                               
+                                                ______________ 1 ______________                                                  
+                                 ______________/                               \______________                                   
+                               0                                                        ______ 7 ______                          
+                                                                                 ______/               \______                   
+                                                                            __ 6                               8 __              
+                                                                         __/                                       \__           
+                                                                       3                                               9         
+                                                                     /   \                                                       
+                                                                   2       5                                                     
+                                                                          /                                                      
+                                                                         4                                                       
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 92
+
