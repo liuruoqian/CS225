@@ -1,0 +1,24 @@
+Grading r7323 by rliu30 committed on Sun Sep  4 17:58:56 CDT 2016
+Monad Autograder
+Testing lab_debug at 2016-09-06 09:38:39
+
+"It always takes longer than you expect, even when you take into account Hofstadter's Law." ~ Hofstadter's Law
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+no_segfaults . . . [20 pts] - passed
+produces_out_png . [10 pts] - passed
+similar_sketch . . [30 pts] - passed
+complete_in_01_png [20 pts] - passed
+complete_in_02_png [20 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+
